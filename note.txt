@@ -1,0 +1,3 @@
+rails generate migration table_name
+rails db:migrate
+
