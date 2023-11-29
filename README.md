@@ -33,7 +33,7 @@
 
 # 📖 [blogpost] <a name="about-project"></a>
 
-**[blogpost]** add Person, Student and Teacher classes
+**[blogpost]** is a fully functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -43,12 +43,13 @@
 <summary>Language</summary>
   <ul>
     <li><a href="https://www.ruby-lang.org/">Ruby</a></li>
+    <li><a href="https://rubyonrails.org/">Rails</a></li>
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
 
-- **[add Person, Student and Teacher classes]**
+- Create posts
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,22 +90,9 @@ To run tests, run the following command:
 ```
 
 ``` sh
-  ruby main.rb
+  rails s
 ```
 
-### For Unix:
-
-First, you'll need to make the script executable
-
-``` sh
-  chmod +x main.rb
-```
-
-Then run this line in your terminal
-
-``` sh
-  ./main.rb
-```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,12 +140,6 @@ If you like this project, please stay tune for more features
 - **[How to use blogpost interface in `irb`?]**
 ``` sh
     irb
-```
-inside the irb, import the interface: 
-``` sh
-    require "./person.rb"
-    require "./student.rb"
-    require "./teacher.rb"
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
