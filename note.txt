@@ -1,3 +1,6 @@
 rails generate migration table_name
 rails db:migrate
 
+// To set up RSpec in your app and create the Spec folder run:
+rails generate rspec:install
+
