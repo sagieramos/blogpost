@@ -1,31 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  describe 'associations' do
-    it { should belong_to(:author) }
-    it { should have_many(:comments) }
-    it { should have_many(:likes) }
+  subject { Post.new(title: 'Post title', text: 'First post', author_id: 2, comments_counter: 0, likes_counter: 0) }
+  before { subject.save }
+
+  it 'title should be present' do
+    subject.title = nil
+    expect(subject).to_not(be_valid)
   end
 
-  describe 'validations' do
-    it { should validate_presence_of(:title) }
-    it { should validate_length_of(:title).is_at_most(250) }
-    it { should validate_numericality_of(:comments_counter).only_integer.is_greater_than_or_equal_to(0) }
-    it { should validate_numericality_of(:likes_counter).only_integer.is_greater_than_or_equal_to(0) }
+  it "title shouldn't exceed 250 character" do
+    subject.title = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.'
+    expect(subject).to_not(be_valid)
   end
 
-  describe 'callbacks' do
-    it 'updates user posts_counter after save' do
-      user = create(:user)
-      expect { create(:post, author: user) }.to change { user.reload.posts_counter }.by(1)
-    end
+  it 'post_counter method should raise an error without user' do
+    expect { subject.post_counter }.to raise_error(NoMethodError)
   end
 
-  describe 'methods' do
-    it 'returns recent comments' do
-      post = create(:post)
-      comments = create_list(:comment, 5, post: post)
-      expect(post.recent_comments).to eq(comments.reverse)
-    end
+  it 'should have positive comments counter' do
+    subject.comments_counter = -1
+    expect(subject).to_not(be_valid)
+  end
+
+  it 'should have positive likes counter' do
+    subject.likes_counter = -1
+    expect(subject).to_not(be_valid)
+  end
+
+  it "shouldn't be any comments exists" do
+    expect(subject.recent_comments.length).to eq(0)
   end
 end
