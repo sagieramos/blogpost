@@ -1,7 +1,9 @@
-<h1><%= @user.name %></h1>
-
 <%= render partial: 'users/user', locals: { user: @user } %>
-<hr>
+<div>
+  <h3>Bio</h3>
+  <p><%= @user.bio %></p>
+</div>
+<hr><hr>
 
 <section id="posts-comtainer">
   <% @user.posts.each do |post| %>
