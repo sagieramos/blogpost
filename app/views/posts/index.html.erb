@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  </head>
-    <h1>Here is a list of posts for a given user</h1>
-  <body>
-  </body>
-</html>
+
+<%= render partial: 'users/user', locals: { user: @user } %>
+
+<% @posts.each do |post| %>
+  <%= render partial: 'posts/post_with_comments', locals: { post: post } %>
+<% end %>
+
+<% if @posts.present? %>
+  <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
+<% else %>
+  <p>No posts available for pagination.</p>
+<% end %>

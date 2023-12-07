@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  </head>
-    <h1>User Details</h1>
-  <body>
-  </body>
-</html>
+<%= render partial: 'users/user', locals: { user: @user } %>
+<div>
+  <h3>Bio</h3>
+  <p><%= @user.bio %></p>
+</div>
+<hr><hr>
+
+<section id="posts-container">
+  <% @user.posts.each do |post| %>
+    <%= render partial: 'posts/post', locals: { post: post } %>
+  <% end %>
+
+  <%= link_to user_posts_path(@user) do %>
+    <p>See all posts</p>
+  <% end %>
+</section>
