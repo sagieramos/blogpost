@@ -5,8 +5,12 @@
 </div>
 <hr><hr>
 
-<section id="posts-comtainer">
+<section id="posts-container">
   <% @user.posts.each do |post| %>
     <%= render partial: 'posts/post', locals: { post: post } %>
+  <% end %>
+
+  <%= link_to user_posts_path(@user) do %>
+    <p>See all posts</p>
   <% end %>
 </section>
