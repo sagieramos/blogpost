@@ -1,9 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  </head>
-    <h1>Post Details for User</h1>
-  <body>
-  </body>
-</html>
+<article style="border: 1px solid gray">
+  <div style="display: flex; gap: 24px">
+    <h3>Post #<%= @post.id %> by <%= @post.author.name %></h3>
+    <div style="display: flex; gap: 12px;">
+      <p>Number of Comments: <%= @post.comments_counter %></p>
+      <p>Number of Likes: <%= @post.likes_counter %></p>
+    </div>
+  </div>
+  <p><%= @post.text %></p>
+</article>
+
+<article style="border: 1px solid gray">
+  <% if @comments.present? %>
+    <% @comments.each do |comment| %>
+      <%= render partial: 'comments/comment', locals: { comment: comment } %>
+    <% end %>
+  <% else %>
+    <p>No comments yet.</p>
+  <% end %>
+</article>
+

@@ -5,4 +5,8 @@
   <%= render partial: 'posts/post_with_comments', locals: { post: post } %>
 <% end %>
 
-<a>Pagination</a>
+<% if @posts.present? %>
+  <%= link_to 'Pagination', user_post_path(@user, @posts.first) %>
+<% else %>
+  <p>No posts available for pagination.</p>
+<% end %>
