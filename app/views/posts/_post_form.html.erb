@@ -1,3 +1,4 @@
+<h3>Create a post</h3>
 <%= form_with(model: post, url: user_posts_path(@user), method: :post) do |form| %>
   <div>
     <%= form.label :title %>
@@ -12,6 +13,6 @@
   <%= form.hidden_field :author_id, value: current_user.id %>
 
   <div>
-    <%= form.submit submit_label %>
+    <%= form.submit 'submit' %>
   </div>
 <% end %>

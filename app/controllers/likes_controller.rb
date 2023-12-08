@@ -1,8 +1,14 @@
 class LikesController < ApplicationController
   def create
     post = Post.find(params[:post_id])
-    Like.create(user: current_user, post: post)
-    redirect_back(fallback_location: user_post_path(post.author, post))
+    @like = Like.create(user: current_user, post: post)
+    if @like.save
+      flash[:notice] = 'Like created successfully'
+      redirect_back(fallback_location: user_post_path(post.author, post))
+    else
+      flash.now[:error] = "Error: Couldn't create liket"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
