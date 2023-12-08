@@ -7,9 +7,11 @@
     </div>
   </div>
   <p><%= @post.text %></p>
+   <%= render partial: 'likes/like_form', locals: { post: @post } %>
 </article>
 
 <article style="border: 1px solid gray">
+  <%= render partial: 'comments/comment_form', locals: { post: @post, comment: Comment.new } %>
   <% if @comments.present? %>
     <% @comments.each do |comment| %>
       <%= render partial: 'comments/comment', locals: { comment: comment } %>
@@ -18,4 +20,7 @@
     <p>No comments yet.</p>
   <% end %>
 </article>
+
+
+
 

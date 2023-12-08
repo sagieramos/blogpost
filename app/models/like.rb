@@ -3,6 +3,9 @@ class Like < ApplicationRecord
   belongs_to :user
 
   after_save :update_likes_counter
+  after_destroy :update_likes_counter
+
+  validates :user, uniqueness: { scope: :post }
 
   private
 

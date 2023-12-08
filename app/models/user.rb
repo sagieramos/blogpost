@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def recent_likes
     likes.order(created_at: :desc).limit(3)
   end
+
+  def likes?(post)
+    likes.exists?(post_id: post.id)
+  end
 end
