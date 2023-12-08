@@ -1,9 +1,14 @@
-<article class="post">
-  <h3 class="post.title">Post #<%= post.id %></h3>
-  <p class="post.text"><%= post.text %></p>
-  <div class="counts-container" style="display: flex; gap: 12px; float: right;">
-    <p class="no-of-comments">Comments: <%= post.comments_counter %></p>
+<article style="display: flex; justify-content: space-around;" class="post">
+  <div>
+    <h3 class="post.title">Post #<%= post.id %></h3>
+    <p class="post.text"><%= post.text %></p>
+  </div>
+  <div class="counts-container" style="display: flex; gap: 12px;">
+    <p class="no-of-comments">
+      <%= link_to "Comments: #{post.comments_counter}", user_post_path(post.author, post) %>
+    </p>
     <p class="no-of-likes">Likes: <%= post.likes_counter %></p>
   </div>
-  <hr>
+
+  <%= render partial: 'likes/like_form', locals: { post: post } %>
 </article>
