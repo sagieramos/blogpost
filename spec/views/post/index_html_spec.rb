@@ -56,6 +56,11 @@ RSpec.describe 'User post index page', type: :system do
     expect(page).to have_content(/Comments: 6/i, normalize_ws: true)
   end
 
+  it 'User sees the number of likes on a post' do
+    visit user_posts_path(@user)
+    expect(page).to have_content(/Likes: 0/i)
+  end
+
   it 'When I click on a post, it redirects me to that post\'s show page.' do
     visit user_posts_path(@user)
     click_link 'Hello'

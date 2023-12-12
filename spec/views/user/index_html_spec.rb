@@ -8,6 +8,7 @@ RSpec.describe 'user_index_path', type: :system do
         User.create!(name: 'Nicole', photo: '#photo_nicole', bio: 'bio', posts_counter: 10),
         User.create!(name: 'Lary', bio: 'bio', posts_counter: 20)
       ]
+      visit users_path
     end
 
     after(:each) do
@@ -15,16 +16,18 @@ RSpec.describe 'user_index_path', type: :system do
     end
 
     it 'I can see the username of all other users.' do
-      visit users_path
-
       @users.each do |u|
         expect(page).to have_content u.name
       end
     end
 
-    it 'I can see the number of posts each user has written.' do
-      visit users_path
+    it 'I can see the user"s profile picture' do
+      @users.each do |u|
+        expect(page).to have_selector("#user-#{u.id}img.user-photo[src='#{u.photo}'][alt=\"#{u.name}'s photo\"]")
+      end
+    end
 
+    it 'I can see the number of posts each user has written.' do
       @users.each do |u|
         expect(page).to have_content('Number of Posts:')
 
@@ -33,7 +36,6 @@ RSpec.describe 'user_index_path', type: :system do
     end
 
     it 'When I click on a user, I am redirected to that user\'s show page.' do
-      visit users_path
       click_link @users[0].name
       expect(page).to have_content @users[0].name
     end
