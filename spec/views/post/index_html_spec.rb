@@ -56,15 +56,9 @@ RSpec.describe 'User post index page', type: :system do
     expect(page).to have_content(/Comments: 6/i, normalize_ws: true)
   end
 
-  it 'User sees the number of likes on a post' do
+  it 'I can see how many likes a post has.' do
     visit user_posts_path(@user)
     expect(page).to have_content(/Likes: 0/i)
-  end
-
-  it 'When I click on a post, it redirects me to that post\'s show page.' do
-    visit user_posts_path(@user)
-    click_link 'Hello'
-    expect(page).to have_content 'This is my first post'
   end
 
   it 'I can see a section for pagination if there are more posts than fit on the view.' do
@@ -76,5 +70,11 @@ RSpec.describe 'User post index page', type: :system do
 
     expect(page).to have_css('.pagination')
     expect(page).to have_link('2')
+  end
+
+  it 'When I click on a post, it redirects me to that post\'s show page.' do
+    visit user_posts_path(@user)
+    click_link 'Hello'
+    expect(page).to have_content 'This is my first post'
   end
 end
