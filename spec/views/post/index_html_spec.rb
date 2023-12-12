@@ -66,4 +66,15 @@ RSpec.describe 'User post index page', type: :system do
     click_link 'Hello'
     expect(page).to have_content 'This is my first post'
   end
+
+  it 'I can see a section for pagination if there are more posts than fit on the view.' do
+    10.times do |i|
+      Post.create(author: @user, title: "Post #{i + 1}", text: "This is post number #{i + 1}")
+    end
+
+    visit user_posts_path(@user)
+
+    expect(page).to have_css('.pagination')
+    expect(page).to have_link('2')
+  end
 end
