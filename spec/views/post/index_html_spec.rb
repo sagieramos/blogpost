@@ -56,9 +56,6 @@ RSpec.describe 'User post index page', type: :system do
     expect(page).to have_content(/Comments: 6/i, normalize_ws: true)
   end
 
-  it 'I can see a section for pagination if there are more posts than fit on the view.' do
-  end
-
   it 'When I click on a post, it redirects me to that post\'s show page.' do
     visit user_posts_path(@user)
     click_link 'Hello'
