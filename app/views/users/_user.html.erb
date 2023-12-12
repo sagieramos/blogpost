@@ -1,6 +1,6 @@
 <article>
   <% if user.photo.present? %>
-    <img class="user-photo" src="<%= user.photo %>" alt="<%= "#{user.name}'s photo" %>">
+    <img id="user-<%= user.id %>img" class="user-photo" src="<%= user.photo %>" alt="<%= "#{user.name}'s photo" %>">
   <% else %>
     <div class="placeholder-box"></div>
   <% end %>
