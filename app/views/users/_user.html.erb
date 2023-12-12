@@ -5,10 +5,10 @@
     <div class="placeholder-box"></div>
   <% end %>
   <div>
-    <h3 class="user-name"><%= user.name %></h3>
     <%= link_to user_path(user) do %>
-        <p>Number of Posts: <%= user.posts_counter %></p>
+      <h3 class="user-name"><%= user.name %></h3>
     <% end %>
+    <p>Number of Posts: <%= user.posts_counter %></p>
   </div>
   <hr>
 </article>
