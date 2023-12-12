@@ -1,11 +1,11 @@
 <article style="display: flex; justify-content: space-around;" class="post">
   <div>
-    <h3 class="post.title">Post #<%= post.id %></h3>
+    <h3><%= link_to post.title, user_post_path(post.author, post), class: "post.title" %></h3>
     <p class="post.text"><%= post.text %></p>
   </div>
   <div class="counts-container" style="display: flex; gap: 12px;">
     <p class="no-of-comments">
-      <%= link_to "Comments: #{post.comments_counter}", user_post_path(post.author, post) %>
+      <%= "Comments: #{post.comments_counter}" %>
     </p>
     <p class="no-of-likes">Likes: <%= post.likes_counter %></p>
   </div>
