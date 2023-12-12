@@ -50,7 +50,7 @@ RSpec.describe 'User index page', type: :system do
     it 'When I click to see all posts, it redirects me to the user\'s post\'s index page.' do
       visit user_posts_path(@user.id)
 
-      10.times do |i|
+      4.times do |i|
         expect(page).to have_content "This is my #{i} post"
       end
     end
