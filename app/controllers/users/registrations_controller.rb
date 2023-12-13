@@ -38,6 +38,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def create
+    super do |user|
+      user.send_confirmation_instructions if user.persisted?
+    end
+  end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
