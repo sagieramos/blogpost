@@ -1,6 +1,6 @@
 <article style="border: 1px solid gray">
   <div style="display: flex; gap: 24px">
-    <h3>Post #<%= @post.id %> by <%= @post.author.name %></h3>
+    <h3><%= @post.title %> by <%= @post.author.name %></h3>
     <div style="display: flex; gap: 12px;">
       <p>Number of Comments: <%= @post.comments_counter %></p>
       <p>Number of Likes: <%= @post.likes_counter %></p>

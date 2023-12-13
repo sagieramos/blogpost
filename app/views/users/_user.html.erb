@@ -1,14 +1,14 @@
 <article>
   <% if user.photo.present? %>
-    <img class="user-photo" src="<%= user.photo %>" alt="<%= "#{user.name}'s photo" %>">
+    <img id="user-<%= user.id %>img" class="user-photo" src="<%= user.photo %>" alt="<%= "#{user.name}'s photo" %>">
   <% else %>
     <div class="placeholder-box"></div>
   <% end %>
   <div>
-    <h3 class="user-name"><%= user.name %></h3>
     <%= link_to user_path(user) do %>
-        <p>Number of Posts: <%= user.posts_counter %></p>
+      <h3 class="user-name"><%= user.name %></h3>
     <% end %>
+    <p>Number of Posts: <%= user.posts_counter %></p>
   </div>
   <hr>
 </article>
