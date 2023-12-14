@@ -73,4 +73,4 @@ end
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
