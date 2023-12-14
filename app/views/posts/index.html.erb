@@ -7,3 +7,7 @@
 <% end %>
 <%= will_paginate @posts %>
 <%= link_to 'Create a Post', new_user_post_path(@user) %>
+
+<% if can? :read, @post %>
+  <%= link_to "View", @post %>
+<% end %
