@@ -1,4 +1,8 @@
 <section id="users">
+  <%= form_tag destroy_user_session_path, method: :delete do %>
+    <%= button_tag "Logout", type: :submit, class: "logout-button" %>
+  <% end %>
+  
   <% @users.each do |user| %>
     <%= render partial: 'user', locals: { user: user } %>
   <% end %>
