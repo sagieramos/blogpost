@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def new
     Post.includes(:comments).find(params[:post_id])
     @comment = Comment.new
@@ -14,6 +16,12 @@ class CommentsController < ApplicationController
       flash.now[:error] = "Error: Couldn't create comment"
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to { user_posts(current_user) }
   end
 
   private
