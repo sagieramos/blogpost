@@ -1,129 +1,123 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Login Form Styles */
+.login-form {
+  max-width: 400px;
+  margin: 32px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.actions {
+  text-align: center;
+}
+
+.notice,
+.alert {
+  margin: 24px auto;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
   .login-form {
-    max-width: 400px;
-    margin: 32px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    max-width: 100%;
   }
-  
-  .field {
-    margin-bottom: 20px;
-  }
-  
-  .login-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  .login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .actions {
-    text-align: center;
-  }
-
-  .notice, 
-  .alert {
-    margin: 24 auto;
-    text-align: center;
-  }
-  
-  @media (max-width: 600px) {
-    .login-form {
-      max-width: 100%;
-    }
-  }
-
-  /* Sign up */
-
-/* Add the following styles to your existing CSS */
+}
 
 form.new_user {
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    box-sizing: border-box;
-    margin: 20px auto; /* Center the form */
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 20px auto; /* Center the form */
+}
+
+form.new_user .field {
+  margin-bottom: 20px;
+}
+
+form.new_user .field input,
+form.new_user .field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+form.new_user .field textarea {
+  resize: none;
+}
+
+form.new_user .actions {
+  text-align: center;
+}
+
+form.new_user .actions input {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+form.new_user .actions input:hover {
+  background-color: #0056b3;
+}
+
+form.new_user label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  form.new_user {
+    max-width: 100%;
   }
-  
-  .field {
-    margin-bottom: 20px;
-  }
-  
-  .field input,
-  .field textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  .field textarea {
-    resize: none;
-  }
-  
-  .actions {
-    text-align: center;
-  }
-  
-  .actions input {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .actions input:hover {
-    background-color: #0056b3;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  /* Optional: Additional styles for responsiveness */
-  @media (max-width: 600px) {
-    form.new_user {
-      max-width: 100%;
-    }
-  }
-  
-  
+}
