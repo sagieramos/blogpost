@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   def new
     Post.includes(:comments).find(params[:post_id])
@@ -19,9 +19,17 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to { user_posts(current_user) }
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+
+    if current_user_can_delete_comment?(@comment)
+      @comment.destroy
+      flash[:notice] = 'Comment successfully deleted.'
+    else
+      flash[:alert] = 'You are not authorized to delete this comment.'
+    end
+
+    redirect_to user_post_path(@post.author, @post)
   end
 
   private
@@ -31,5 +39,9 @@ class CommentsController < ApplicationController
     a_post[:author] = current_user
     a_post[:post] = post
     a_post
+  end
+
+  def current_user_can_delete_comment?(comment)
+    current_user == comment.user || current_user.role == 'admin'
   end
 end
