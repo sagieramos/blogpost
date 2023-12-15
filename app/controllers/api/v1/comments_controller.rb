@@ -44,10 +44,6 @@ class Api::V1::CommentsController < ApplicationController
     @comments = @post.comments.includes(:user)
   end
 
-  def set_comments
-    @comments = @post.comments.includes(:user)
-  end
-
   def comment_params
     params.require(:comment).permit(:text)
   end
