@@ -5,7 +5,6 @@ class CreatePosts < ActiveRecord::Migration[7.1]
       t.string :title, null: false
       t.text :text
       t.integer :comments_counter, null: false, default: 0
-      t.integer :posts_counter, null: false, default: 0
       t.integer :likes_counter, null: false, default: 0
 
       t.timestamps

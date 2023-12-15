@@ -38,7 +38,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_210239) do
     t.string "title", null: false
     t.text "text"
     t.integer "comments_counter", default: 0, null: false
-    t.integer "posts_counter", default: 0, null: false
     t.integer "likes_counter", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
