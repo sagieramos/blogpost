@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "users#index"
 
+  # match '*path', to: 'application#not_found', via: :all
+
   # get '/users/:user_id', to: 'users#show', as: 'user'
   # get '/users/:user_id/posts', to: 'posts#index', as: 'user_posts'
   # get '/users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
@@ -19,11 +21,12 @@ Rails.application.routes.draw do
           collection do
             get 'all'
           end
-          resources :comments, only: [:index], controller: 'comments'
+          resources :comments, only: [:index, :create], controller: 'comments'
         end
       end
     end
   end
+  
   
 
   resources :users, only: [:index, :show] do

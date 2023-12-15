@@ -30,7 +30,7 @@ class Api::V1::PostsController < ApplicationController
       }
     }
 
-    render json: JSON.pretty_generate(json_response)
+    render json: JSON.pretty_generate(json_response), status: :ok
   end
 
   # http://localhost:3000/api/v1/users/:user_id/posts/:post_id
@@ -41,16 +41,20 @@ class Api::V1::PostsController < ApplicationController
     json_response = {
       post: @post.as_json(include: { comments: { include: :user } })
     }
-    render json: JSON.pretty_generate(json_response)
+    render json: JSON.pretty_generate(json_response), status: :ok
   end
 
   private
 
   def set_user
     @user = User.find(params[:user_id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'User not found' }, status: :not_found
   end
 
   def set_post
     @post = Post.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Post not found' }, status: :not_found
   end
 end
