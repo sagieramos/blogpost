@@ -19,10 +19,12 @@ Rails.application.routes.draw do
           collection do
             get 'all'
           end
+          resources :comments, only: [:index], controller: 'comments'
         end
       end
     end
   end
+  
 
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
