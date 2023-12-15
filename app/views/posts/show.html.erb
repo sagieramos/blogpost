@@ -1,4 +1,7 @@
 <article style="border: 1px solid gray">
+  <% if can? :destroy, @post %>
+    <%= button_to "Delete Post" ,[@post.author, @post], method: :delete, class: "pagination" %>
+  <% end %>
   <div style="display: flex; gap: 24px">
     <h3><%= @post.title %> by <%= @post.author.name %></h3>
     <div style="display: flex; gap: 12px;">

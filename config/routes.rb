@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   # get '/users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
 
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create] do
-      resources :comments, only: [:new, :create], controller: 'comments'
+    resources :posts, only: [:index, :show, :new, :create, :destroy] do
+      resources :comments, only: [:new, :create, :destroy], controller: 'comments'
       resources :likes, only: [:create, :destroy], controller: 'likes'
     end
   end

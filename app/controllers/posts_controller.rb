@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_user
   before_action :set_post, only: [:show]
 
@@ -23,6 +25,12 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to user_path(params[:user_id])
   end
 
   private
